@@ -9,7 +9,7 @@ public:
         while(j<s.size()){
             if(mp.find(s[j])==mp.end()){
                 mp.insert(s[j]);
-                mx=max(mx,(int)mp.size());
+                mx=max(mx, j-i+1);
                 j++;
             }
             else{
