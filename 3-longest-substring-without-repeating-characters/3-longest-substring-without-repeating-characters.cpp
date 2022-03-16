@@ -4,10 +4,10 @@ public:
         if(s.size()==0) return 0;
         
         int i=0,j=0,mx=0;
-        set<char> mp;
+        unordered_set<char> mp;
         
         while(j<s.size()){
-            if(mp.count(s[j])==0){
+            if(mp.find(s[j])==mp.end()){
                 mp.insert(s[j]);
                 mx=max(mx,(int)mp.size());
                 j++;
@@ -17,6 +17,11 @@ public:
                 i++;
             }
         }
+        
+//         map<int,int> mp;
+//         while(j<s.size()){
+            
+//         }
         
         return mx;
     }
