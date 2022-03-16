@@ -24,7 +24,7 @@ public:
                 c++;
                 continue;
             }
-            if(i.first!=l+1 && l+1!=0 && l+1>0)
+            if(i.first!=l+1 && l+1>0)
                 return l+1;
             l=i.first;            
         }
