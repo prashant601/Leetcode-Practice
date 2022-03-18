@@ -5,7 +5,6 @@ public:
         int l,r=nums.size()-1,near=INT_MAX,s=target, ans=0;
         for(int i=0;i<nums.size();i++){
             l=i+1,r=nums.size()-1;
-            // s=s-nums[i];
             while(l<r){
                 // cout<<nums[i]<<" "<<nums[l]<<" "<<nums[r]<<endl;
                 if(nums[l]+nums[r]==s-nums[i]){
@@ -15,14 +14,11 @@ public:
                 else if(nums[l]+nums[r]>s-nums[i]){
                     if(near>abs(nums[l]+nums[r]+nums[i]-target))
                         near=abs(nums[l]+nums[r]+nums[i]-target) , ans=nums[i]+nums[l]+nums[r] ;
-                    
-                    // near=min(near,abs(nums[l]+nums[r]+nums[i]-target));
                     r--;
                 }
                 else{
                     if(near>abs(nums[l]+nums[r]+nums[i]-target))
                         near=abs(nums[l]+nums[r]+nums[i]-target) , ans=nums[i]+nums[l]+nums[r] ;
-                    // near=min(near,abs(nums[l]+nums[r]+nums[i]-target));
                     l++;
                 }
             }
