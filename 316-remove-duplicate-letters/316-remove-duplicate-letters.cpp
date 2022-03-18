@@ -7,6 +7,7 @@ public:
         for(int i=0;i<n;i++){
             mp[s[i]]++;
         }
+        
         vector<bool> visited(256, false);
         
         for(int i=0;i<n;i++){
@@ -24,13 +25,13 @@ public:
             st.push(s[i]);   
             visited[s[i]] = true;
             }
-        set<char> set;
+        
         string ans="";
         while(!st.empty()){
-            ans+=st.top();
+            ans=st.top()+ans;
             st.pop();
         }
-        reverse(ans.begin(),ans.end());
+        // reverse(ans.begin(),ans.end());
         return ans;
     }    
 };
