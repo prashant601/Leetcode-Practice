@@ -12,9 +12,9 @@ public:
         // }
         // return s.size() == 0;
         
-        int i=0,j=0;
+        int i=0,j=0;   
         for(int x: pushed){
-            pushed[i]=x;
+            pushed[i]=x;  //using pushed as stack
             i++;
             while(i>0 && pushed[i-1]==popped[j]){
                 i--;
