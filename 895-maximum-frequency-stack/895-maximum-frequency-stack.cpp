@@ -17,6 +17,7 @@ class FreqStack {
     }
 };
 
+
 /**
  * Your FreqStack object will be instantiated and called as such:
  * FreqStack* obj = new FreqStack();
