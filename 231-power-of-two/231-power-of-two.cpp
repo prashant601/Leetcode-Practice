@@ -1,12 +1,8 @@
 class Solution {
 public:
-    bool helper(int n,int k){
-        if(pow(2,k)==n) return true;
-        else if(pow(2,k)> n)  return false;
-        return helper(n,k+1);
-    }
     bool isPowerOfTwo(int n) {
-        return helper(n,0);
-        
+        if(n==0) return false;
+        if(n==1) return true;
+        return ( n%2 == 0 && isPowerOfTwo(n/2) );
     }
 };
