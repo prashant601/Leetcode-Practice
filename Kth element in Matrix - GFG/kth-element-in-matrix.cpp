@@ -36,6 +36,9 @@ int kthSmallest(int mat[MAX][MAX], int n, int k)
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
             s.insert(mat[i][j]);
+            if(s.size()>k){
+                s.erase(--s.end());
+            }
         }
     }
         auto it= s.begin();
