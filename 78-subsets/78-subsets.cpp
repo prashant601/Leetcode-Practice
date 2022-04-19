@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> res;
-    void helper(vector<int> &nums, vector<int> &subset, int i){
+    void helper(vector<int> &nums, vector<int> subset, int i){
         if(i== nums.size())
             res.push_back(subset);
         else{
@@ -9,7 +9,6 @@ public:
             helper(nums,subset,i+1); 
             subset.push_back(nums[i]);
             helper(nums,subset,i+1);
-            subset.pop_back();
             
         }
     }
