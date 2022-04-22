@@ -1,13 +1,19 @@
 class Solution {
 public:
-    bool dfsBipartite(int i,vector<vector<int>> graph, vector<int> &col ){
-        if(col[i]==-1) col[i]=1;
-        for(auto it:graph[i]){
-            if(col[it]==-1){
-                col[it]=1-col[i];
-                if(!dfsBipartite(it,graph,col)) return false;
+    bool bfsBipartite(int i,vector<vector<int>> &graph, vector<int> &col ){
+        queue<int> q;
+        q.push(i);
+        col[i]=1;
+        while(!q.empty()){
+            int node=q.front();
+            q.pop();
+            for(auto it: graph[node]){
+                if(col[it]==-1){
+                    col[it]=1-col[node];
+                    q.push(it);
+                }
+                else if(col[it]==col[node]) return false;
             }
-            else if(col[it]==col[i]) return false;
         }
         return true;
     }
@@ -16,7 +22,7 @@ public:
         vector<int> col(V,-1);
         for(int i=0;i<V;i++){
             if(col[i]==-1){
-                if(!dfsBipartite(i,graph,col)) return false;
+                if(!bfsBipartite(i,graph,col)) return false;
             }
         }
         return true;
