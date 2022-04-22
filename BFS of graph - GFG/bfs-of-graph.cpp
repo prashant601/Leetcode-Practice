@@ -29,7 +29,7 @@ class Solution {
         
         // for(int i=0;i<V;i++){
         int i=0;
-            if(vis[i]){
+            if(vis[i]==0){
                 queue<int> q;
                 q.push(vis[i]);
                 
