@@ -20,25 +20,49 @@ public:
         // return mins;
         
         //tabular
-        int n= matrix.size(), mins=1e9;
-        vector<vector<int>> dp(n+1, vector<int>(n+1,0));
+//         int n= matrix.size(), mins=1e9;
+//         vector<vector<int>> dp(n+1, vector<int>(n+1,0));
         
-        for(int j=0;j<n;j++) dp[0][j]=matrix[0][j]; //initialisation as in base case
+//         for(int j=0;j<n;j++) dp[0][j]=matrix[0][j]; //initialisation as in base case
+        
+//         for(int i=1;i<n;i++){
+//             for(int j=0;j<n;j++){
+//                 int b= matrix[i][j] + dp[i-1][j];
+//                 int dl= matrix[i][j];
+//                 if(j+1<n) dl+= dp[i-1][j+1];  // just for out of bound
+//                 else dl+=1e9;
+//                 int dr= matrix[i][j];
+//                 if(j-1>=0) dr+=dp[i-1][j-1];   // for oob
+//                 else dr+=1e9;
+//                 dp[i][j]=min({b,dl,dr});
+//             }
+//         }
+//         mins= dp[n-1][0];
+//         for(int i=0;i<n;i++) mins=min(mins, dp[n-1][i]);   //getting the min from all starting points 
+//         return mins;
+        
+        //space optimised tabular
+        int n= matrix.size(), mins=1e9;
+        vector<int> prev(n,0);
+        for(int j=0;j<n;j++) prev[j]=matrix[0][j]; //initialisation as in base case
         
         for(int i=1;i<n;i++){
+            vector<int> cur(n,0);
             for(int j=0;j<n;j++){
-                int b= matrix[i][j] + dp[i-1][j];
+                int b= matrix[i][j] + prev[j];
                 int dl= matrix[i][j];
-                if(j+1<n) dl+= dp[i-1][j+1];  // just for out of bound
+                if(j+1<n) dl+= prev[j+1];  // just for out of bound
                 else dl+=1e9;
                 int dr= matrix[i][j];
-                if(j-1>=0) dr+=dp[i-1][j-1];   // for oob
+                if(j-1>=0) dr+=prev[j-1];   // for oob
                 else dr+=1e9;
-                dp[i][j]=min({b,dl,dr});
+                cur[j]=min({b,dl,dr});
             }
+            prev=cur;
         }
-        mins= dp[n-1][0];
-        for(int i=0;i<n;i++) mins=min(mins, dp[n-1][i]);   //getting the min from all starting points 
+        mins= prev[0];
+        for(int i=0;i<n;i++) mins=min(mins, prev[i]);   //getting the min from all starting points 
         return mins;
+        
     }
 };
