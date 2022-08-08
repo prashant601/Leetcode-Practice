@@ -20,7 +20,7 @@ public:
         for(int i=0;i<n;i++){
            dp[i][0]= true;
         }
-        if(k>=arr[0])
+        if(arr[0]<=k)
         dp[0][arr[0]]=true;
 
         for(int i=1;i<n;i++){
