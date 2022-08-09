@@ -14,24 +14,43 @@ public:
         // vector<vector<int>>dp(n1+1, vector<int>(n2+1,-1));
         // return f(n1-1, n2-1, s1, s2, dp);
         
-        //tabular
-        vector<vector<int>>dp(n1+1, vector<int>(n2+1,-1));
+//         //tabular
+//         vector<vector<int>>dp(n1+1, vector<int>(n2+1,-1));
          
+//         // shifting of index i.e for -1 use 0, 
+//         for(int j=0;j<=n2;j++) dp[0][j]=0;
+//         for(int i=0;i<=n1;i++) dp[i][0]=0;   // initialisation using base case
+        
+//         for(int i=1;i<=n1;i++){
+//             for(int j=1;j<=n2;j++){
+//                 if(s1[i-1]==s2[j-1]){ //due to shifting of index
+//                     dp[i][j]= 1+dp[i-1][j-1];
+//                 }
+//                 else{
+//                     dp[i][j]= max(dp[i][j-1], dp[i-1][j]);
+//                 }
+//             }
+//         }
+//         return dp[n1][n2];
+        
+        // space optimized tabular
+         vector<int> prev(n2+1,0), curr(n2+1,0);
         // shifting of index i.e for -1 use 0, 
-        for(int j=0;j<=n2;j++) dp[0][j]=0;
-        for(int i=0;i<=n1;i++) dp[i][0]=0;   // initialisation using base case
+        for(int j=0;j<=n2;j++) prev[j]=0;
+        // initialisation using base case
         
         for(int i=1;i<=n1;i++){
             for(int j=1;j<=n2;j++){
                 if(s1[i-1]==s2[j-1]){ //due to shifting of index
-                    dp[i][j]= 1+dp[i-1][j-1];
+                    curr[j]= 1+prev[j-1];
                 }
                 else{
-                    dp[i][j]= max(dp[i][j-1], dp[i-1][j]);
+                    curr[j]= max(curr[j-1], prev[j]);
                 }
             }
+            prev=curr;
         }
-        return dp[n1][n2];
+        return prev[n2];
         
     }
 };
