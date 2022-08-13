@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // revise from striver
     string getPermutation(int n, int k) {
         int fact=1;
         vector<int> nums;
