@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool isPalindrome(int i, int j, string& s){
+    bool isPalindrome(int i, int j, string& s){ // we can use dp while calculating palindrome
         while(i<j){
             if(s[i]!=s[j]) return false;
             i++;
