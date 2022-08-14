@@ -3,11 +3,12 @@ public:
     int tribonacci(int n) {
         if(n<=1) return n;
         if(n==2) return 1;
-        vector<int> f(n+1);
-        f[0]=0,f[1]=1,f[2]=1;
+        int f,s,t,a;
+        f=0,s=1,t=1;
         for(int i=3;i<n+1;i++){
-            f[i]=f[i-1]+f[i-2]+f[i-3];
+            a=f+s+t;
+            f=s, s=t, t=a;
         }
-        return f[n];
+        return a;
     }
 };
