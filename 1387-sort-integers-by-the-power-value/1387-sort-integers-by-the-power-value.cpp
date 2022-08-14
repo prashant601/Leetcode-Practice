@@ -1,9 +1,5 @@
 class Solution {
 public:
-     static bool sortByVal(const pair<string, int> &a, const pair<string, int> &b) 
-    { 
-        return (a.second < b.second); 
-    } 
     int getKth(int lo, int hi, int K) {
         int k=0, ind=0;
         vector<int> a(hi-lo+1,0);
