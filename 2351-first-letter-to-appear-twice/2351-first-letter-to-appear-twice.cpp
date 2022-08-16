@@ -8,9 +8,9 @@ public:
             mp[x]++;
             if(mp[x]==2)
             {
-                ans=x; return x;
+                return x;
             }
         }
-        return ans;
+        return 'A';
     }
 };
