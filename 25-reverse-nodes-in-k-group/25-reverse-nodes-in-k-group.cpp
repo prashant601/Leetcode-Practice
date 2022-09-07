@@ -19,7 +19,7 @@ public:
         } 
         curr=head;
         
-        if(cnt<k) return head;
+        if(cnt<k) return head; //don't reverse when the no. of elements left are less than k
         
         while(curr!=NULL and i<k){
             i++;
