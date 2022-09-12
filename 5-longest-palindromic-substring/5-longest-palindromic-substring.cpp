@@ -23,11 +23,11 @@ public:
         
         for(int i=0;i<n-1;i++){
             getMax(i,i,s);     
-        }
-        
-        for(int i=0;i<n-1;i++){
             getMax(i,i+1,s);
         }
+        
+        // for(int i=0;i<n-1;i++){
+        // }
         
         return s.substr(st,mx);
     }
