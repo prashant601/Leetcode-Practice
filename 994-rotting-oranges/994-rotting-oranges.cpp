@@ -29,7 +29,7 @@ public:
                     rottenQ.push({nx,ny});
                 }
             }
-            if(!rottenQ.empty()) time++;
+            if(!rottenQ.empty()) time++;  // increasing the time ,as if cell is inserted in queue (as someone is marked rotten) and q is not empty
         }
         
         return cnt == tot ? time : -1; //if tot == cnt(i.e no. of elements pushed in rottenQ) thus , ans will be the time, else -1.
