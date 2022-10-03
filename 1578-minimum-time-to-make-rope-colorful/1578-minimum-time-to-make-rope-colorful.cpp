@@ -2,7 +2,8 @@ class Solution {
 public:
     int minCost(string col, vector<int>& time) {
         int n= col.size(), ans=0;
-        for(int i=0;i<n;i++){
+        int i=0;
+        while(i<n){
             vector<int> l;
             l.push_back(0);
             while(i<n and col[i]==col[i+1]){
@@ -20,6 +21,7 @@ public:
                 ans+= l[i];
                 // cout<<"this is added "<<l[i]<<" ";
             }
+            i++;
         }
         return ans;
     }
